@@ -17,4 +17,15 @@ public class IpApiService
         IpData data = JsonConvert.DeserializeObject<IpData>(json) ?? throw new Exception("Не удалось десериализовать IpData");
         return data;
     }
+
+    public static async Task<List<IpData>> GetAllIpDatas(List<string> IPs)
+    {
+        List<IpData> ipDatas = [];
+        foreach (var ip in IPs)
+        {
+            ipDatas.Add(await GetIpData(ip));
+        }
+
+        return ipDatas;
+    }
 }

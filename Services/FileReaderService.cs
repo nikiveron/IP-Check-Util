@@ -5,7 +5,7 @@ namespace IPCheckUtil.Services;
 
 public class FileReaderService
 {
-    public async IAsyncEnumerable<string> ReadLinesAsync()
+    public static async IAsyncEnumerable<string> ReadLinesAsync()
     {
         using var response = await Constants.httpClient.GetAsync(Constants.TXT_URL, HttpCompletionOption.ResponseHeadersRead);
         response.EnsureSuccessStatusCode();
