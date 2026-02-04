@@ -1,4 +1,5 @@
-﻿using IPCheckUtil.Utils;
+﻿using IPCheckUtil.Exceptions;
+using IPCheckUtil.Utils;
 using System.Net.Http;
 
 namespace IPCheckUtil.Services;
@@ -18,5 +19,18 @@ public class FileReaderService
         {
             yield return line;
         }
+    }
+
+    public static async Task<List<string>> GetAllIps()
+    {
+        List<string> IPs = [];
+        await foreach (var ip in FileReaderService.ReadLinesAsync())
+        {
+            IPs.Add(ip);
+        }
+
+        if (IPs.Count == 0) throw new FileLoadExceptionEx("Файл с IP пуст");
+
+        return IPs;
     }
 }
