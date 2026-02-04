@@ -35,9 +35,9 @@ public class AnalysisService
         Console.WriteLine("---СТАТИСТИКА ПО СТРАНАМ---");
         foreach (var сountry in сountries)
         {
-            Console.WriteLine($"{сountry.Key} - {сountry.Value}");
+            Console.Write($"{сountry.Key} - {сountry.Value}; ");
         }
-        Console.WriteLine();
+        Console.WriteLine("\n");
     }
 
     public static void ShowMaxFrequencyCountryCities(List<IpData> ipDatas, Dictionary<string, int> сountries)
