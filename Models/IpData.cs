@@ -1,7 +1,7 @@
 ﻿
 namespace IPCheckUtil.Models;
 
-public class IpDataModel
+public class IpData
 {
     public string Ip { get; set; } = string.Empty;
     public string Hostname { get; set; } = string.Empty;
