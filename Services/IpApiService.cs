@@ -8,8 +8,7 @@ public class IpApiService
 {
     public static async Task<IpData> GetIpData(string ip)
     {
-        var http = new HttpClient();
-        var response = await http.GetAsync($"https://ipinfo.io/{ip}/json");
+        var response = await Constants.httpClient.GetAsync($"{Constants.API_URL}/{ip}/json");
 
         response.EnsureSuccessStatusCode();
 
