@@ -1,6 +1,5 @@
 ﻿using IPCheckUtil.Exceptions;
 using IPCheckUtil.Utils;
-using System.Net.Http;
 
 namespace IPCheckUtil.Services;
 
@@ -24,7 +23,7 @@ public class FileReaderService
     public static async Task<List<string>> GetAllIps()
     {
         List<string> IPs = [];
-        await foreach (var ip in FileReaderService.ReadLinesAsync())
+        await foreach (var ip in ReadLinesAsync())
         {
             IPs.Add(ip);
         }

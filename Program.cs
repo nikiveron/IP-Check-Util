@@ -12,11 +12,11 @@ try
     List<IpData> ipDatas = await IpApiService.GetAllIpDatas(IPs);
 
     // 3. Статистика по странам
-    Dictionary<string, int> сountries = AnalysisService.GetCountryStatistics(ipDatas);
-    AnalysisService.ShowCountryStatistics(сountries);
+    Dictionary<string, int> countries = AnalysisService.GetCountryStatistics(ipDatas);
+    AnalysisService.ShowCountryStatistics(countries);
 
     // 4. Города в стране с наибольшим кол-вом ip
-    AnalysisService.ShowMaxFrequencyCountryCities(ipDatas, сountries);
+    AnalysisService.ShowMaxFrequencyCountryCities(ipDatas, countries);
 }
 catch (AppException ex)
 {
